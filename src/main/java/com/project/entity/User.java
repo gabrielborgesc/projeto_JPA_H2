@@ -20,7 +20,12 @@ public class User {
 	private String name;
 	private String email;
 	
+//	@ManyToMany(cascade=CascadeType.ALL)
+//	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "user_roles",
+			joinColumns = @JoinColumn(name = "users_id"),
+			inverseJoinColumns = @JoinColumn(name = "roles_id"))
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;
 	
@@ -68,5 +73,7 @@ public class User {
 		this.messages.add(message);
 	}
 	
-	
+	public void addRole(Role role) {
+		this.roles.add(role);
+	}
 }

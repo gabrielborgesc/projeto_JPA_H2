@@ -14,7 +14,9 @@ public class Role {
 	private Long id;
 	private String name;
 	
-	@ManyToMany(mappedBy="roles", fetch=FetchType.LAZY)
+//	@ManyToMany(mappedBy="roles", fetch=FetchType.LAZY)
+	@ManyToMany(mappedBy="roles")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<User> users;
 	
 	public List<User> getUsers() {
