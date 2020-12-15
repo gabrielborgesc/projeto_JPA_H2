@@ -32,15 +32,6 @@ public class User {
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles; //Para salvar novo user com nova role, precisa dar save só no user, adicionar a role e dar outro save
 	
-	@OneToMany(mappedBy="sourceUser", fetch=FetchType.EAGER)
-	private List<Message> messages = new ArrayList<Message>();
-	
-	public List<Message> getMessages() {
-		return messages;
-	}
-	public void setMessages(List<Message> messages) {
-		this.messages = messages;
-	}
 	public Long getId() {
 		return id;
 	}
@@ -70,10 +61,6 @@ public class User {
 	}
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
-	}
-	
-	public void appendMessage(Message message) {
-		this.messages.add(message);
 	}
 	
 	public void addRole(Role role) {

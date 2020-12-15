@@ -30,10 +30,11 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
-		User user = userRepository.findByName("borges");
-		Role role = roleRepository.findByName("SuperUser");
-		user.addRole(role);
-		userRepository.save(user);
+	User user = userRepository.findByName("gabriel");
+	List<Message> messages = messageRepository.findBySourceUser(user);
+	for(Message message : messages) {
+		System.out.println(message.getText());
+	}
 
 	}
 }
