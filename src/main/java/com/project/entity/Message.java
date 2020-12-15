@@ -16,6 +16,14 @@ public class Message {
 		return id;
 	}
 
+	public Message() {
+	}
+
+	public Message(String text, User sourceUser) {
+		this.text = text;
+		this.sourceUser = sourceUser;
+	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}

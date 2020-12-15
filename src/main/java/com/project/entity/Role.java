@@ -14,6 +14,17 @@ public class Role {
 	@ManyToMany(mappedBy="roles")
 	private List<User> users;
 	
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	public Role(String name) {
+		this.name = name;
+	}
+	public Role() {
+	}
 	public Long getId() {
 		return id;
 	}
