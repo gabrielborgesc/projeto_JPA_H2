@@ -3,6 +3,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Role {
 
@@ -11,7 +14,7 @@ public class Role {
 	private Long id;
 	private String name;
 	
-	@ManyToMany(mappedBy="roles")
+	@ManyToMany(mappedBy="roles", fetch=FetchType.LAZY)
 	private List<User> users;
 	
 	public List<User> getUsers() {

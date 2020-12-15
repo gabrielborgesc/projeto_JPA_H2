@@ -20,7 +20,7 @@ public class User {
 	private String name;
 	private String email;
 	
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.ALL)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<Role> roles;
 	

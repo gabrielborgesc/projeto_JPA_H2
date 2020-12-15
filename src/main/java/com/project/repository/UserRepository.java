@@ -17,4 +17,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	
 	@Query("select u from User u where u.id>=?1 and u.name like %?2%")
 	List<User> findIdBiggerThan(Long id, String LikeName);
+	
 }
