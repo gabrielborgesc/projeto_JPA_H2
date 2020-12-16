@@ -22,8 +22,6 @@ public class User {
 	private String name;
 	private String email;
 	
-//	@ManyToMany(cascade=CascadeType.ALL)
-//	@LazyCollection(LazyCollectionOption.FALSE)
 	@ManyToMany
 	@JoinTable(name = "user_roles",
 			joinColumns = @JoinColumn(name = "users_id"),
